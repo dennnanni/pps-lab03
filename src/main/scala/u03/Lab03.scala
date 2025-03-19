@@ -10,3 +10,5 @@ object Lab03 extends App:
   def getCourses(seq: Sequence[Person]) : Sequence[String] =
     flatMap(seq)(_ match {case Teacher(_, c) => Cons(c, Nil()); case _ => Nil()})
 
+  
+

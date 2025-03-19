@@ -10,17 +10,18 @@ import u03.Lab03.*
 
 class Lab03Test:
 
-  val people =
-    Cons(Teacher("piero", "informatica"),
-      Cons(Student("matteo", 2024),
-        Cons(Teacher("aldo", "italiano"), Nil())))
-  val students =
-    Cons(Student("matteo", 2024),
-      Cons(Student("ilaria", 2022), Nil()))
-  val empty: Sequence[Person] = Nil()
-
   @Test
   def testGetCoursesFromTeachers(): Unit =
+    val people =
+      Cons(Teacher("piero", "informatica"),
+        Cons(Student("matteo", 2024),
+          Cons(Teacher("aldo", "italiano"), Nil())))
+    val students =
+      Cons(Student("matteo", 2024),
+        Cons(Student("ilaria", 2022), Nil()))
+    val empty: Sequence[Person] = Nil()
+
     assertEquals(Cons("informatica", Cons("italiano", Nil())), getCourses(people))
     assertEquals(Nil(), getCourses(students))
     assertEquals(Nil(), getCourses(empty))
+
