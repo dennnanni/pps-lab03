@@ -7,9 +7,6 @@ import u03.Sequences.Sequence.*
 
 object Lab03 extends App:
 
-  def getCourses(seq: Sequence[Person]) : Sequence[String] = seq match
-    case Cons(h, t) => h match
-      case Teacher(_, course) => Cons(course, getCourses(t))
-      case _ => getCourses(t)
-    case _ => Nil()
+  def getCourses(seq: Sequence[Person]) : Sequence[String] =
+    flatMap(seq)(_ match {case Teacher(_, c) => Cons(c, Nil()); case _ => Nil()})
 
