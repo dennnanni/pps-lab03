@@ -6,6 +6,8 @@ import u02.Modules.*
 import u02.Modules.Person.*
 import u03.Sequences.*
 import u03.Sequences.Sequence.*
+import u03.Streams.Stream.*
+import u03.Streams.*
 import u03.Lab03.*
 
 class Lab03Test:
@@ -41,3 +43,10 @@ class Lab03Test:
     assertEquals(3, getCoursesCount(people))
     assertEquals(0, getCoursesCount(students))
     assertEquals(0, getCoursesCount(empty))
+
+  // Task 3
+  // takeWhile già implementata nel file Streams
+
+  @Test
+  def testFill(): Unit =
+    assertEquals(Cons("a", Cons("a", Cons("a", Nil()))), toList(fill(3)("a")))
