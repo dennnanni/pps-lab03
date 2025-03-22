@@ -50,3 +50,9 @@ class Lab03Test:
   @Test
   def testFill(): Unit =
     assertEquals(Cons("a", Cons("a", Cons("a", Nil()))), toList(fill(3)("a")))
+
+  @Test
+  def testFibonacci(): Unit =
+    val fibonacci: Stream[Int] = Lab03.fibonacci()
+    assertEquals(Cons(0, Cons(1, Cons(1, Cons(2, Cons(3, Nil()))))), toList(take(fibonacci)(5)))
+    assertEquals(Cons(0, Cons(1, Cons(1, Cons(2, Cons(3, Cons(5, Cons(8, Cons(13, Cons(21, Cons(34, Nil())))))))))), toList(take(fibonacci)(10)))

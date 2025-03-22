@@ -27,3 +27,7 @@ object Lab03 extends App:
 
   def fill[A](n: Int)(value: A) : Stream[A] = if n > 0 then cons(value, fill(n - 1)(value)) else empty()
 
+  def fibonacci(): Stream[Int] =
+    def _fib(acc1: Int, acc2: Int): Stream[Int] =
+      cons(acc1, _fib(acc2, acc1 + acc2))
+    _fib(0, 1)
