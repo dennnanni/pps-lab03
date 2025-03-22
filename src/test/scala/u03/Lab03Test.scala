@@ -28,6 +28,8 @@ class Lab03Test:
   @Test
   def testFoldLeft(): Unit =
     val seq = Cons(3, Cons(7, Cons(1, Cons(5, Nil()))))
+    val empty = Nil[Int]()
     assertEquals(-16, foldLeft(seq)(0)(_ - _))
     assertEquals(-11, foldLeft(seq)(5)(_ - _))
     assertEquals(17, foldLeft(seq)(1)(_ + _))
+    assertEquals(10, foldLeft(empty)(10)(_ * _))

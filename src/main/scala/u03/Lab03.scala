@@ -10,9 +10,9 @@ object Lab03 extends App:
   def getCourses(seq: Sequence[Person]) : Sequence[String] =
     flatMap(seq)(_ match {case Teacher(_, c) => Cons(c, Nil()); case _ => Nil()})
 
-  def foldLeft[A](seq: Sequence[A])(startValue: A)(op: (A, A) => A): A = seq match
+  def foldLeft[A, B](seq: Sequence[A])(startValue: B)(op: (B, A) => B): B = seq match
     case Cons(h, t) => foldLeft(t)(op(startValue, h))(op)
-    case _ => ???
+    case _ => startValue
 
 
 
