@@ -97,11 +97,9 @@ object Sequences: // Essentially, generic linkedlists
      * E.g., [10, 20, 30] => [10, 30]
      * E.g., [10, 20, 30, 40] => [10, 30]
      */
-    def evenIndices[A](s: Sequence[A]): Sequence[A] =
-      def _even(s: Sequence[A])(i: Int): Sequence[A] = s match
-        case Cons(h, t) => if i % 2 == 0 then Cons(h, _even(t)(i + 1)) else _even(t)(i + 1)
-        case _ => Nil()
-      _even(s)(0)
+    def evenIndices[A](s: Sequence[A]): Sequence[A] = s match
+      case Cons(h, t) => Cons(h, evenIndices(skip(t)(1)))
+      case _ => Nil()
 
     /*
      * Check if the sequence contains the element
